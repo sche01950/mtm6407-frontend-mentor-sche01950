@@ -1,0 +1,383 @@
+/* STYLE RESET */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+img,
+picture {
+  max-width: 105%;
+  display: block;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+textarea:not([rows]) {
+  min-height: 10em;
+}
+
+/* REDUCED MOTION FOR ACCESSIBILITY */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* COLOR & FONT VARIABLES */
+:root {
+  --clr-primary-200: hsl(40, 77%, 65%);
+  --clr-primary-400: hsl(5, 85%, 65%);
+  --almost-white: #fffdfa;
+  --clr-neutral-100: hsl(36, 100%, 99%);
+  --clr-neutral-400: hsl(240, 1%, 76%);
+  --clr-neutral-700: hsl(235, 13%, 38%);
+  --clr-neutral-900: hsl(240, 100%, 4%);
+  --fw-400: 400;
+  --fw-700: 700;
+  --fw-800: 800;
+  --fs-700: 1.50rem;
+  --fs-400: 1rem;
+  --fs-300: 0.975rem;
+}
+
+/* PAGE STRUCTURE */
+body {
+  min-width: 500px;
+  font-family: Inter, Arial, sans-serif;
+  background-color: var(--clr-neutral-100);
+  color: var(--clr-neutral-700);
+  font-size: 15px;
+  margin: 0 21px 28px 21px;
+  overflow-x: hidden;
+}
+
+/* FLEX UTILITIES */
+.flex-column-center {
+  display: flex;
+  align-items: center;
+}
+
+.flex-row-sb {
+  display: flex;
+  justify-content: space-between;
+}
+
+.flex-row-center {
+  display: flex;
+  justify-content: center;
+}
+
+.flex-row {
+  display: flex;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+/* LINKS */
+a {
+  text-decoration: none;
+  color: var(--clr-neutral-700);
+}
+
+a:hover {
+  color: var(--clr-primary-400);
+}
+
+/* HEADINGS */
+h1 {
+  font-size: 4rem;
+  font-weight: var(--fw-800);
+  line-height: 3.5rem;
+  color: var(--clr-neutral-900);
+}
+
+h2 {
+  font-size: 2.5rem;
+  color: var(--clr-primary-200);
+  margin: 0 0 28px 0;
+}
+
+h3 {
+  font-size: 1.25rem;
+  color: var(--almost-white);
+  font-weight: var(--fw-800);
+  padding: 0 0 7px 0;
+}
+
+h3 a {
+  color: var(--almost-white);
+}
+
+h3 a:hover {
+  color: var(--clr-primary-200);
+}
+
+h4 {
+  font-size: 3rem;
+  color: var(--clr-neutral-400);
+  font-weight: var(--fw-800);
+  line-height: 2rem;
+  margin: 0 0 10px 0;
+}
+
+h5 {
+  font-size: 1.125rem;
+  color: var(--clr-neutral-900);
+  font-weight: var(--fw-800);
+  line-height: 1.5rem;
+  margin: 0 0 10px 0;
+}
+
+h5 a {
+  color: var(--clr-neutral-900);
+  font-weight: var(--fw-800);
+}
+
+p {
+  line-height: 26px;
+}
+
+/* ACCESSIBILITY */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* SPACING HELPERS */
+.margin-top-89 {
+  margin-top: 89px;
+}
+
+.margin-bottom-55 {
+  margin-bottom: 55px;
+}
+
+.margin-28 {
+  margin: 28px;
+}
+
+.margin-bottom-28 {
+  margin-bottom: 28px;
+}
+
+.margin-right-21 {
+  margin-right: 21px;
+}
+
+.margin-vert-auto {
+  margin: auto 0;
+}
+
+.padding-28 {
+  padding: 24px;
+}
+
+.gap-spacer {
+  gap: 30px;
+}
+
+/* SIDEBAR CARD DIVIDER */
+.sidebar-card-border {
+  border-bottom: 2px solid var(--clr-neutral-700);
+}
+
+/* MAIN CONTAINER */
+.container {
+  max-width: 1110px;
+  margin: 0 auto;
+}
+
+/* MAIN & HEADER */
+main {
+  margin: 0 0 71px 0;
+}
+
+header {
+  margin: 89px 0 0 0;
+}
+
+/* MOBILE NAV TOGGLE */
+.mobile-nav-toggle {
+  display: none;
+}
+
+/* SIDEBAR */
+.sidebar {
+  background-color: var(--clr-neutral-900);
+  color: var(--almost-white);
+  max-width: 350px;
+  min-width: 250px;
+}
+
+/* NEWS SECTION */
+.news-container {
+  max-width: 730px;
+  margin-right: 28px;
+}
+
+.news-title {
+  width: 50%;
+}
+
+.news-text {
+  width: 50%;
+}
+
+/* FEATURED CARDS */
+.card-container {
+  min-height: 127px;
+}
+
+.card {
+  width: 33%;
+}
+
+/* SIDEBAR CARD EXCEPTIONS */
+.sidebar-card:last-child {
+  border: none;
+  margin: 0;
+}
+
+.sidebar-card:last-child p {
+  margin: 0;
+}
+
+/* CARD IMAGE SIZING */
+.card-img {
+  max-width: 100px;
+  min-width: 100px;
+}
+
+/* NEWS BUTTON */
+.news-text button {
+  background-color: var(--clr-primary-400);
+  padding: 13px 31px;
+  border: none;
+  color: black;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  font-weight: var(--fw-700);
+  letter-spacing: 4.5px;
+}
+
+.news-text button:hover {
+    color: var(--almost-white);
+  background-color: var(--clr-neutral-900);
+  cursor: pointer;
+}
+
+/* UNIQUE: Responsive news content stacking */
+@media all and (max-width: 985px) {
+  .news-content {
+    flex-direction: column;
+  }
+
+  .news-title {
+    width: 100%;
+    margin-bottom: 28px;
+  }
+
+  .news-text {
+    width: 100%;
+  }
+}
+
+/* UNIQUE: Card and sidebar stacking for tablets */
+@media all and (max-width: 775px) {
+  main {
+    flex-direction: column;
+  }
+
+  header {
+    margin: 2rem 0;
+  }
+
+  .card-container {
+    flex-direction: column;
+    justify-content: space-around;
+    margin-bottom: 28px;
+  }
+
+  .card {
+    width: 100%;
+    margin: 0 0 30px 0;
+  }
+
+  .sidebar {
+    max-width: 100%;
+    margin-top: 64px;
+  }
+
+  .news-container {
+    margin-right: 0;
+  }
+}
+
+/* UNIQUE: Mobile navigation and layout */
+@media all and (max-width: 600px) {
+  .primary-navigation {
+    flex-direction: column;
+    background-color: var(--almost-white);
+    z-index: 1000;
+    position: fixed;
+    inset: 0 0 0 50%;
+    padding: min(30vh, 9rem) 2rem;
+    transform: translateX(100%);
+    transition: transform 350ms ease-out;
+  }
+
+  .primary-navigation[data-visible="true"] {
+    transform: translateX(0%);
+  }
+
+  nav li a {
+    color: var(--clr-neutral-900);
+    font-size: 1.1rem;
+  }
+
+  .mobile-nav-toggle {
+    background: url(assets/images/icon-menu.svg);
+    background-repeat: no-repeat;
+    display: block;
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    z-index: 9999;
+    width: 2rem;
+    aspect-ratio: 1;
+    border: 0;
+  }
+
+  .mobile-nav-toggle[aria-expanded="true"] {
+    background: url(assets/images/icon-menu-close.svg);
+    background-repeat: no-repeat;
+  }
+}
